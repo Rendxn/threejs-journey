@@ -1,13 +1,11 @@
 {
   "name": "threejs-journey",
+  "workspaces": [
+    "lessons/**/*"
+  ],
   "version": "1.0.0",
   "description": "The lessons I work on of the Threejs Journey course",
   "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/Rendxn/threejs-journey.git"
