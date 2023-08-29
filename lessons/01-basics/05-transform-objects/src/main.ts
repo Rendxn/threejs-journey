@@ -16,26 +16,20 @@ const scene = new THREE.Scene();
 /**
  * Objects
  */
-const geometry = new THREE.BoxGeometry(1, 1, 1);
-const material = new THREE.MeshBasicMaterial({
-  color: 0xff0000,
-});
-const mesh = new THREE.Mesh(geometry, material);
+const group = new THREE.Group();
+scene.add(group);
 
-// Position
-mesh.position.set(0.7, -0.6, 1);
-scene.add(mesh);
+const cube1 = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshBasicMaterial({ color: 0xff0000 }));
+const cube2 = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshBasicMaterial({ color: 0x00ff00 }));
+const cube3 = new THREE.Mesh(new THREE.BoxGeometry(), new THREE.MeshBasicMaterial({ color: 0x0000ff }));
 
-// Scale
-mesh.scale.set(2, 0.5, 0.5);
+cube2.position.x = -2;
+cube3.position.x = 2;
 
-/**
- * Rotation: It's relative to the current position of the object.
- * It's cumbersome, so that's why Quaternions are recommended.
- */
-mesh.rotation.reorder("YXZ"); // <- Rotate first on Y, then X, then Z
-mesh.rotation.x = Math.PI / 4;
-mesh.rotation.y = Math.PI / 4;
+group.position.y = 1;
+group.scale.y = 2;
+group.rotation.y = 1;
+group.add(cube1, cube2, cube3);
 
 // Axes helper
 const axesHelper = new THREE.AxesHelper(3);
@@ -45,9 +39,6 @@ scene.add(axesHelper);
 const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height);
 camera.position.z = 3;
 scene.add(camera);
-
-// Make the object's -z face the target provided
-camera.lookAt(mesh.position);
 
 // Renderer
 const renderer = new THREE.WebGLRenderer({
@@ -59,6 +50,6 @@ renderer.render(scene, camera);
 /**
  * Position is a Vector3
  */
-console.log("Magnitude of vector", mesh.position.length());
-console.log("Distance from cube to camera", mesh.position.distanceTo(camera.position));
-console.log("Normalized vector", mesh.position.normalize());
+// console.log("Magnitude of vector", mesh.position.length());
+// console.log("Distance from cube to camera", mesh.position.distanceTo(camera.position));
+// console.log("Normalized vector", mesh.position.normalize());
