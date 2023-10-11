@@ -1,5 +1,5 @@
 {
-  "name": "05-transform-objects",
+  "name": "06-animations",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,11 +10,12 @@
   "author": "Santiago Rendón",
   "license": "MIT",
   "dependencies": {
+    "gsap": "^3.5.1",
     "three": "^0.157.0"
   },
   "devDependencies": {
     "@types/three": "^0.157.0",
     "typescript": "^5.2.2",
-    "vite": "^4.4.9"
+    "vite": "^4.4.11"
   }
 }
