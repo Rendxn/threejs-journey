@@ -36,23 +36,18 @@ renderer.setSize(sizes.width, sizes.height);
 
 const clock = new THREE.Clock();
 
+// With GSAP
 gsap.to(mesh.position, { x: 2, duration: 1, delay: 1 });
 
+// Manual
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
 
   // Update objects
   mesh.rotation.y = elapsedTime;
-
-  // Render
   renderer.render(scene, camera);
 
   // Call tick again on the next frame
-  window.requestAnimationFrame(tick);
-
-  // Render
-  renderer.render(scene, camera);
-
   window.requestAnimationFrame(tick);
 };
 
