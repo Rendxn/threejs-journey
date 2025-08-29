@@ -1,0 +1,20 @@
+{
+  "name": "06-animations",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Santiago Rendón",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite"
+  },
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "three": "^0.179.1"
+  },
+  "devDependencies": {
+    "@types/three": "^0.179.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.3"
+  }
+}
