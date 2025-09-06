@@ -29,30 +29,31 @@ const renderer = new THREE.WebGLRenderer({
   canvas: canvas ?? undefined,
 });
 renderer.setSize(sizes.width, sizes.height);
+renderer.render(scene, camera);
 
 /**
  * Animations
  */
 
-// const clock = new THREE.Clock();
+const clock = new THREE.Clock();
 // let time = Date.now();
 
-gsap.to(mesh.position, { x: 2, duration: 1, delay: 1 });
+// gsap.to(mesh.position, { x: 2, duration: 1, delay: 1 });
 
 const tick = () => {
   /**
    * To avoid framerate dependencies,
    * we use time. We can also use THREE Clock.
    */
-  //   const elapsedTime = clock.getElapsedTime();
-  //   mesh.position.x = Math.cos(elapsedTime);
-  //   mesh.position.y = Math.sin(elapsedTime);
+  const elapsedTime = clock.getElapsedTime();
+  mesh.position.x = Math.cos(elapsedTime);
+  mesh.position.y = Math.sin(elapsedTime);
+  mesh.rotation.y = elapsedTime * 2 * Math.PI;
 
-  //   const currentTime = Date.now();
-  //   const deltaTime = currentTime - time;
-  //   time = currentTime;
-  //   mesh.rotation.y += 0.001 * deltaTime;
-  //   mesh.rotation.y = elapsedTime * 2 * Math.PI;
+  // const currentTime = Date.now();
+  // const deltaTime = currentTime - time;
+  // time = currentTime;
+  // mesh.rotation.y += 0.001 * deltaTime;
 
   // Render
   renderer.render(scene, camera);
